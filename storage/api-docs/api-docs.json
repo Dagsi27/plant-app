@@ -1,0 +1,701 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Plant API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/plants": {
+            "get": {
+                "summary": "Get list of plants",
+                "operationId": "79ff6b2e88cbac96d62aeab713fafbbc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new plant",
+                "operationId": "c86787105595ef6b73ce3747ed89bb9e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePlantRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Plant created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/plants/{id}": {
+            "get": {
+                "summary": "Get a plant by ID",
+                "operationId": "289dfd303fc02fbda7bfb187ca85f4ef",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a plant",
+                "operationId": "8cbc6e05c886024354efb5f1a01c5c11",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePlantRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Plant updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlantResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a plant",
+                "operationId": "a5b9f4e7d74f028350aa1df5b1386a1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Plant deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "string",
+                                            "example": "Plant deleted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/species": {
+            "get": {
+                "summary": "Get list of species",
+                "operationId": "44d9fbafe8199e95253da525108bb9ad",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpeciesCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new species",
+                "operationId": "5dcd7feaedd8aed9c487ee55e2c0575e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreSpeciesRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Species created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpeciesResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/species/{id}": {
+            "get": {
+                "summary": "Get a species by ID",
+                "operationId": "df4beddce2a4488a67302c58df212290",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpeciesResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a species",
+                "operationId": "b758b114a6345cb6edff5a3639bcd8cb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateSpeciesRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Species updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpeciesResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a species",
+                "operationId": "d42c3f4272a7a86500df933ae0057746",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Species deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "string",
+                                            "example": "Species deleted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/watering-history": {
+            "get": {
+                "summary": "Get list of watering history",
+                "operationId": "5bd559213059793202d9e045dcff317d",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WateringHistoryCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new watering history record",
+                "operationId": "459a28eb55a0aefcad620354495adfe8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreWateringHistoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Watering history record created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WateringHistoryResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/watering-history/{id}": {
+            "get": {
+                "summary": "Get a watering history record by ID",
+                "operationId": "1f865aa5a1b8c5a9857a323ba710d418",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WateringHistoryResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a watering history record",
+                "operationId": "fc18cc64471a514d9e63598f12f9ffcf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateWateringHistoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Watering history record updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WateringHistoryResource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a watering history record",
+                "operationId": "1b609886fc44ad38308dc35a8abb84ba",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Watering history record deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "string",
+                                            "example": "Watering history record deleted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StorePlantRequest": {
+                "required": [
+                    "species_id",
+                    "name"
+                ],
+                "properties": {
+                    "species_id": {
+                        "description": "ID of the species",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the plant",
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "purchase_date": {
+                        "description": "Purchase date of the plant",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "description": "Notes about the plant",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Image URL of the plant",
+                        "type": "string",
+                        "maxLength": 255
+                    }
+                },
+                "type": "object"
+            },
+            "UpdatePlantRequest": {
+                "properties": {
+                    "species_id": {
+                        "description": "ID of the species",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the plant",
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "purchase_date": {
+                        "description": "Purchase date of the plant",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "description": "Notes about the plant",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Image URL of the plant",
+                        "type": "string",
+                        "maxLength": 255
+                    }
+                },
+                "type": "object"
+            },
+            "StoreSpeciesRequest": {
+                "required": [
+                    "name",
+                    "watering_frequency",
+                    "light_requirements",
+                    "soil_type"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Name of the species",
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "watering_frequency": {
+                        "description": "Watering frequency of the species",
+                        "type": "string"
+                    },
+                    "light_requirements": {
+                        "description": "Light requirements of the species",
+                        "type": "string"
+                    },
+                    "soil_type": {
+                        "description": "Soil type for the species",
+                        "type": "string"
+                    },
+                    "notes": {
+                        "description": "Additional notes about the species",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateSpeciesRequest": {
+                "properties": {
+                    "name": {
+                        "description": "Name of the species",
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "watering_frequency": {
+                        "description": "Watering frequency of the species",
+                        "type": "string"
+                    },
+                    "light_requirements": {
+                        "description": "Light requirements of the species",
+                        "type": "string"
+                    },
+                    "soil_type": {
+                        "description": "Soil type for the species",
+                        "type": "string"
+                    },
+                    "notes": {
+                        "description": "Additional notes about the species",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreWateringHistoryRequest": {
+                "required": [
+                    "plant_id",
+                    "watering_date"
+                ],
+                "properties": {
+                    "plant_id": {
+                        "description": "ID of the plant",
+                        "type": "integer"
+                    },
+                    "watering_date": {
+                        "description": "Date and time of watering",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "notes": {
+                        "description": "Notes about the watering",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateWateringHistoryRequest": {
+                "properties": {
+                    "plant_id": {
+                        "description": "ID of the plant",
+                        "type": "integer"
+                    },
+                    "watering_date": {
+                        "description": "Date and time of watering",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "notes": {
+                        "description": "Notes about the watering",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "PlantCollection": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/PlantResource"
+                }
+            },
+            "PlantResource": {
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "species_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "purchase_date": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "SpeciesCollection": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/SpeciesResource"
+                }
+            },
+            "SpeciesResource": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Ficus"
+                    },
+                    "watering_frequency": {
+                        "type": "string",
+                        "example": "Weekly"
+                    },
+                    "light_requirements": {
+                        "type": "string",
+                        "example": "Indirect sunlight"
+                    },
+                    "soil_type": {
+                        "type": "string",
+                        "example": "Well-draining soil"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "example": "Keep the soil moist but not waterlogged."
+                    },
+                    "plants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlantResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "WateringHistoryCollection": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/WateringHistoryResource"
+                }
+            },
+            "WateringHistoryResource": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "plant_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "watering_date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01T00:00:00Z"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "example": "Watered thoroughly."
+                    },
+                    "plant": {
+                        "$ref": "#/components/schemas/PlantResource"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
