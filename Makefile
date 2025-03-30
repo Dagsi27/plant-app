@@ -7,16 +7,13 @@ build: ## Builds the Docker images
 	@$(DOCKER) build --no-cache
 
 up: ## Start the docker hub in detached mode (no logs)
-	@$(DOCKER) up -d
+	@$(DOCKER) up
 
 down: ## Stop the docker hub
 	@$(DOCKER) down
 
 cli: ## Run Container (Go inside)
 	@$(EXEC) bash
-
-ps: ## Run Container (Go inside)
-	@$(DOCKER) ps
 
 ## —— Laravel 🚀 ————————————————————————————————————————————————————————————————
 pint:

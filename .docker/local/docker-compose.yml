@@ -4,7 +4,7 @@ services:
         image: mysql:8.0.34
         container_name: pa-mysql
         ports:
-            - ${MYSQL_PORT}:3316
+            - "${MYSQL_PORT}:3316"
         environment:
             - MYSQL_DATABASE=${MYSQL_DATABASE}
             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -19,7 +19,7 @@ services:
         build: ./php
         container_name: pa-app
         ports:
-            - ${APP_PORT}:9000
+            - "${APP_PORT}:9000"
         restart: unless-stopped
         env_file:
             - ../../.env
@@ -31,13 +31,25 @@ services:
         container_name: pa-web
         restart: unless-stopped
         ports:
-            - ${NGINX_PORT}:80
+            - "${NGINX_PORT}:80"
         volumes:
             - ../../:/var/www
             - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         environment:
             - TZ=${TIME_ZONE}
-
+    pa-react:
+        build:
+            context: ../..
+            dockerfile: .docker/local/react/Dockerfile
+        container_name: pa-react
+        ports:
+            - "${REACT_PORT}:3000"
+        volumes:
+            - ../../resources/js/react-app/:/app
+        environment:
+            - NODE_ENV=development
+            - PORT=${REACT_PORT}
+        command: npm start
 volumes:
     pa-mysql:
         driver: local
