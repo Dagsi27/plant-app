@@ -5,15 +5,11 @@ use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\WateringHistoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/api/get_crsf', function () {
-    if (config('app.env') === 'local') {
-        return csrf_token();
-    }
-    throw new Exception('CSRF token not available in production');
-});
-
-Route::resource('api/plants', PlantController::class)
-    ->only(['index', 'store', 'show', 'update', 'destroy']);
+Route::post('/api/plants', [PlantController::class, 'store']);
+Route::get('api/plants', [PlantController::class, 'index']);
+Route::get('api/plants/{id}', [PlantController::class, 'show']);
+Route::put('api/plants/{id}', [PlantController::class, 'update']);
+Route::delete('api/plants/{id}', [PlantController::class, 'destroy']);
 
 Route::resource('api/species', SpeciesController::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);

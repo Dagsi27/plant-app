@@ -6,8 +6,8 @@ services:
         ports:
             - "${MYSQL_PORT}:3316"
         environment:
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
-            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_DATABASE=${DB_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
         volumes:
             - pa-mysql:/var/lib/mysql
     pa-adminer:

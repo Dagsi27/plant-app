@@ -9,7 +9,8 @@
     margin-inline-start: auto;
 }
 
-.navbar-item:hover {
+.navbar-brand .navbar-item:hover,
+.navbar-start .navbar-item:hover {
     background-color: #f0f0f0;
     transition: background-color 0.3s ease;
 }

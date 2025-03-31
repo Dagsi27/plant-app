@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('species', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('watering_frequency');
-            $table->enum('light_requirements', ['none', 'low', 'medium', 'high']);
-            $table->enum('soil_type', ['none', 'sand', 'clay', 'loam', 'peat', 'chalk', 'silt', 'silt_loam', 'sandy_loam', 'clay_loam', 'silica']);
             $table->longText('notes')->nullable();
             $table->timestamps();
         });

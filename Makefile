@@ -7,7 +7,7 @@ build: ## Builds the Docker images
 	@$(DOCKER) build --no-cache
 
 up: ## Start the docker hub in detached mode (no logs)
-	@$(DOCKER) up
+	@$(DOCKER) up -d
 
 down: ## Stop the docker hub
 	@$(DOCKER) down

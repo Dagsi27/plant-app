@@ -20,15 +20,17 @@ class UpdatePlantRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules(): array
     {
         return [
-            'species_id' => 'exists:species,id',
             'name' => 'string|max:255',
             'purchase_date' => 'date',
+            'watering_frequency' => 'required|integer',
+            'light_requirements' => 'required|string',
+            'soil_type' => 'required|string',
             'notes' => 'string',
             // 'image' => 'string|max:255',
         ];

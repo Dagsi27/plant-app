@@ -27,9 +27,11 @@ class StorePlantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'species_id' => 'required|exists:species,id',
             'name' => 'required|string|max:255',
             'purchase_date' => 'nullable|date',
+            'watering_frequency' => 'required|integer',
+            'light_requirements' => 'required|string',
+            'soil_type' => 'required|string',
             'notes' => 'nullable|string',
             // 'image' => 'nullable|string|max:255',
         ];

@@ -23,16 +23,26 @@ function Home() {
     return (
         <section className="section">
             <div className="container">
-                {error && <p className="error">{error}</p>}
-                <div className="columns is-centered">
-                    <div className="column">
-                        <h2 className="title">Plants List</h2>
-                        <ul>
-                            {plants.map(plant => (
-                                <li key={plant.id}>{plant.name}</li>
-                            ))}
-                        </ul>
+                <h1 className="title has-text-centered is-size-3 has-text-black">Plants</h1>
+                <div className="columns mt-5 is-8 is-variable">
+                    {error && <p className="error">{error}</p>}
+                    {plants.map(plant => (
+                    <div key={plant.id} className="column is-4-tablet is-3-desktop">
+                        <div className="card has-shadow">
+                            <div className="card-image has-text-centered px-6">
+                                    <img src={logo} alt="Plant Shop"/>
+                            </div>
+                            <div className="card-content">
+                                <p className="custom-title">{plant.name}</p>
+                            </div>
+                            <footer className="card-footer">
+                                <a href={`/`} className="card-footer-item button is-info no-top-radius">
+                                    Watering
+                                </a>
+                            </footer>
+                        </div>
                     </div>
+                    ))}
                 </div>
             </div>
         </section>
