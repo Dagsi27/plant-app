@@ -16,10 +16,6 @@ class Plant extends Model
         'image',
     ];
 
-    protected $casts = [
-        'purchase_date' => 'datetime',
-    ];
-
     public function species(): BelongsTo
     {
         return $this->belongsTo(Species::class);
